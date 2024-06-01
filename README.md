@@ -1,6 +1,6 @@
 # vue-project
 
-This template should help get you started developing with Vue 3 in Vite.
+Web系统框架课程设计——实验室预约管理系统
 
 ## Recommended IDE Setup
 
