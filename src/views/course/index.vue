@@ -51,32 +51,12 @@ const getClass = (i:number) => {
         return 'btn-warning'
     }
 }
-// var buttonContainer = document.getElementById('course-list');
-
-// // 获取所有按钮
-// var buttons = buttonContainer?.getElementsByTagName('button');
-
-// // 循环遍历按钮，并根据奇偶性为其添加不同的类
-// for (var i = 0; i < buttons.length; i++) {
-//     if (i % 4 === 0) {
-//         buttons[i].classList.add('btn-primary');
-//     } else if (i % 4 === 1) {
-//         buttons[i].classList.add('btn-success');
-//     } else if (i % 4 === 2) {
-//         buttons[i].classList.add('btn-danger');
-//     } else if (i % 4 === 3) {
-//         buttons[i].classList.add('btn-info');
-//     }
-// }
 
 const router = useRouter()
 const store = InitStore()
 const courses = store.coursesList
 
 
-// watch(course, ( )=>{
-//     console.log('换了')
-// })
 const updateCourse = (c:Course) => {
     course.value = c
     // router.push('course/add')

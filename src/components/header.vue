@@ -13,9 +13,20 @@
       </template>
       <template #extra>
         <div class="flex items-center">
-          <el-button>Print</el-button>
-          <el-button type="primary" class="ml-2">Edit</el-button>
-          <span class="text-large font-600 mr-3" style="font-weight: bolder;">Git </span>
+          <el-dropdown>
+            <span class="el-dropdown-link" >
+              admin
+              <el-icon class="el-icon--right" >
+                <arrow-down />
+              </el-icon>
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item @click="clear">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>          
+          <a href="https://gitee.com/lgc3076131388/vue-project" class="head-item"><img src="@/assets/images/github.svg" alt="github" style="width: 40px;"></a>
         </div>
         
       </template>
@@ -33,6 +44,10 @@ const goBack = () => {
   console.log('go back')
   router.go(-1);
 }
+const clear = () =>{
+  sessionStorage.removeItem('token');
+  router.push('/login')
+}
 </script>
 <style scoped>
 .header{
@@ -44,5 +59,13 @@ const goBack = () => {
 .flex{
   display: flex;
 
+}
+.head-item{
+  margin-left: 40px;
+  margin-right: 20px;
+}
+.el-dropdown-link{
+  font-size: 18px;
+  padding-top: 10px;
 }
 </style>

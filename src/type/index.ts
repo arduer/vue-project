@@ -160,16 +160,16 @@ const orders:Order[] = [
     course:courses.find((c) => c.name =='软件工程导论'), lab:labs.find((la) => la.name == '丹青901'), week:1, day:5, lesson:lessons.find((le) => le.id == 2),
   },
   {
-    course:courses.find((c) => c.name =='软件工程导论'), lab:labs.find((la) => la.name == '丹青901'), week:2, day:2, lesson:lessons.find((le) => le.id == 5),
+    course:courses.find((c) => c.name =='软件工程导论'), lab:labs.find((la) => la.name == '丹青901'), week:2, day:2, lesson:lessons.find((le) => le.id == 3),
   },
   {
-    course:courses.find((c) => c.name =='软件工程导论'), lab:labs.find((la) => la.name == '丹青901'), week:2, day:2, lesson:lessons.find((le) => le.id == 6),
+    course:courses.find((c) => c.name =='软件工程导论'), lab:labs.find((la) => la.name == '丹青901'), week:2, day:2, lesson:lessons.find((le) => le.id == 4),
   },
   {
-    course:courses.find((c) => c.name =='软件工程导论'), lab:labs.find((la) => la.name == '丹青901'), week:2, day:5, lesson:lessons.find((le) => le.id == 3),
+    course:courses.find((c) => c.name =='软件工程导论'), lab:labs.find((la) => la.name == '丹青901'), week:2, day:5, lesson:lessons.find((le) => le.id == 1),
   },
   {
-    course:courses.find((c) => c.name =='软件工程导论'), lab:labs.find((la) => la.name == '丹青901'), week:2, day:5, lesson:lessons.find((le) => le.id == 4),
+    course:courses.find((c) => c.name =='软件工程导论'), lab:labs.find((la) => la.name == '丹青901'), week:2, day:5, lesson:lessons.find((le) => le.id == 2),
   },
 ]
 export function getOrders() {

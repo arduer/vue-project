@@ -1,273 +1,90 @@
 <template>
-  <el-cascader :options="options" clearable />
+  <el-table :data="tableData" style="width: 100%">
+    <el-table-column fixed prop="date" label="Date" width="150" />
+    <el-table-column prop="name" label="Name" width="120" />
+    <el-table-column prop="state" label="State" width="120" />
+    <el-table-column prop="city" label="City" width="120" />
+    <el-table-column prop="address" label="Address" width="600" />
+    <el-table-column prop="zip" label="Zip" width="120" />
+    <el-table-column fixed="right" label="Operations" width="120">
+      <template #default>
+        <el-button link type="primary" size="small" @click="handleClick">
+          Detail
+        </el-button>
+        <el-button link type="primary" size="small">Edit</el-button>
+      </template>
+    </el-table-column>
+  </el-table>
 </template>
+
 <script lang="ts" setup>
-const options = [
+const handleClick = () => {
+  console.log('click')
+}
+
+const week:number[] = [1,2,3,5,7,8,9]
+const x = formatArray(week)
+const tableData = [
   {
-    value: 'guide',
-    label: 'Guide',
-    children: [
-      {
-        value: 'disciplines',
-        label: 'Disciplines',
-        children: [
-          {
-            value: 'consistency',
-            label: 'Consistency',
-          },
-          {
-            value: 'feedback',
-            label: 'Feedback',
-          },
-          {
-            value: 'efficiency',
-            label: 'Efficiency',
-          },
-          {
-            value: 'controllability',
-            label: 'Controllability',
-          },
-        ],
-      },
-      {
-        value: 'navigation',
-        label: 'Navigation',
-        children: [
-          {
-            value: 'side nav',
-            label: 'Side Navigation',
-          },
-          {
-            value: 'top nav',
-            label: 'Top Navigation',
-          },
-        ],
-      },
-    ],
+    date: x,
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Home',
   },
   {
-    value: 'component',
-    label: 'Component',
-    children: [
-      {
-        value: 'basic',
-        label: 'Basic',
-        children: [
-          {
-            value: 'layout',
-            label: 'Layout',
-          },
-          {
-            value: 'color',
-            label: 'Color',
-          },
-          {
-            value: 'typography',
-            label: 'Typography',
-          },
-          {
-            value: 'icon',
-            label: 'Icon',
-          },
-          {
-            value: 'button',
-            label: 'Button',
-          },
-        ],
-      },
-      {
-        value: 'form',
-        label: 'Form',
-        children: [
-          {
-            value: 'radio',
-            label: 'Radio',
-          },
-          {
-            value: 'checkbox',
-            label: 'Checkbox',
-          },
-          {
-            value: 'input',
-            label: 'Input',
-          },
-          {
-            value: 'input-number',
-            label: 'InputNumber',
-          },
-          {
-            value: 'select',
-            label: 'Select',
-          },
-          {
-            value: 'cascader',
-            label: 'Cascader',
-          },
-          {
-            value: 'switch',
-            label: 'Switch',
-          },
-          {
-            value: 'slider',
-            label: 'Slider',
-          },
-          {
-            value: 'time-picker',
-            label: 'TimePicker',
-          },
-          {
-            value: 'date-picker',
-            label: 'DatePicker',
-          },
-          {
-            value: 'datetime-picker',
-            label: 'DateTimePicker',
-          },
-          {
-            value: 'upload',
-            label: 'Upload',
-          },
-          {
-            value: 'rate',
-            label: 'Rate',
-          },
-          {
-            value: 'form',
-            label: 'Form',
-          },
-        ],
-      },
-      {
-        value: 'data',
-        label: 'Data',
-        children: [
-          {
-            value: 'table',
-            label: 'Table',
-          },
-          {
-            value: 'tag',
-            label: 'Tag',
-          },
-          {
-            value: 'progress',
-            label: 'Progress',
-          },
-          {
-            value: 'tree',
-            label: 'Tree',
-          },
-          {
-            value: 'pagination',
-            label: 'Pagination',
-          },
-          {
-            value: 'badge',
-            label: 'Badge',
-          },
-        ],
-      },
-      {
-        value: 'notice',
-        label: 'Notice',
-        children: [
-          {
-            value: 'alert',
-            label: 'Alert',
-          },
-          {
-            value: 'loading',
-            label: 'Loading',
-          },
-          {
-            value: 'message',
-            label: 'Message',
-          },
-          {
-            value: 'message-box',
-            label: 'MessageBox',
-          },
-          {
-            value: 'notification',
-            label: 'Notification',
-          },
-        ],
-      },
-      {
-        value: 'navigation',
-        label: 'Navigation',
-        children: [
-          {
-            value: 'menu',
-            label: 'Menu',
-          },
-          {
-            value: 'tabs',
-            label: 'Tabs',
-          },
-          {
-            value: 'breadcrumb',
-            label: 'Breadcrumb',
-          },
-          {
-            value: 'dropdown',
-            label: 'Dropdown',
-          },
-          {
-            value: 'steps',
-            label: 'Steps',
-          },
-        ],
-      },
-      {
-        value: 'others',
-        label: 'Others',
-        children: [
-          {
-            value: 'dialog',
-            label: 'Dialog',
-          },
-          {
-            value: 'tooltip',
-            label: 'Tooltip',
-          },
-          {
-            value: 'popover',
-            label: 'Popover',
-          },
-          {
-            value: 'card',
-            label: 'Card',
-          },
-          {
-            value: 'carousel',
-            label: 'Carousel',
-          },
-          {
-            value: 'collapse',
-            label: 'Collapse',
-          },
-        ],
-      },
-    ],
+    date: x,
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Office',
   },
   {
-    value: 'resource',
-    label: 'Resource',
-    children: [
-      {
-        value: 'axure',
-        label: 'Axure Components',
-      },
-      {
-        value: 'sketch',
-        label: 'Sketch Templates',
-      },
-      {
-        value: 'docs',
-        label: 'Design Documentation',
-      },
-    ],
+    date: '2016-05-04',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Home',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    state: 'California',
+    city: 'Los Angeles',
+    address: 'No. 189, Grove St, Los Angeles',
+    zip: 'CA 90036',
+    tag: 'Office',
   },
 ]
+function formatArray(arr:number[]){
+    let result = '';
+      let start = arr[0];
+      let end = arr[0];
+      for (let i = 1; i < arr.length; i++) {
+        if (arr[i] - arr[i - 1] === 1) {
+          end = arr[i];
+        } else {
+          if (start === end) {
+            result += `${start}, `;
+          } else {
+            result += `${start}-${end}, `;
+          }
+          start = arr[i];
+          end = arr[i];
+        }
+      }
+      if (start === end) {
+        result += start;
+      } else {
+        result += `${start}-${end}`;
+      }
+      return result;
+}
+
 </script>

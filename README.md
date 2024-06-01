@@ -1,39 +1,36 @@
 # vue-project
 
-This template should help get you started developing with Vue 3 in Vite.
+Web系统框架课程设计——实验室预约管理系统(基于vue前端框架实现)
 
-## Recommended IDE Setup
+## 基本要求
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### 基础
+基于需求，合理设计接口及数据类型约束。
+系统默认包含4个实验室可以预约。
+共18周，每实验室支持上午2段(1234节)下午2段(5678节)共4次课。
+系统需登陆使用。
 
-## Type Support for `.vue` Imports in TS
+### 需求
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+教师，需先创建包含课程名称，学时的实验课若干。录入课程后，基于课程预约。
+实验时间固定。例如，预约901，1-8周每周二12节；902，1-8周每周四56节等。
 
-## Customize configuration
+### 设计
+1.首页可查看实验室预约记录，并实现对预约记录进行整理，即不同周次同一天同一节课，识别为一项预约记录。
+并对连续或简短预约周次的表格渲染进行简化，例如周次为[1,2,3,5,7,8,9],则显示为[1-3,5,7-9]
+2.点击实验室排表，实验室以类似课表形式渲染显示18周内每星期每段的占用情况。
+同时在实验室预约页面，选择实验室后，右侧渲染课表
+3.课程可进行修改，增加等操作
+4.教师基于周次选择实验时间，显示18个周的复选框，可任意连续，间断选择上课时间
+5.系统提供实验时间冲突检测。即，同一时间段只能有一门实验课。选择实验室时，从所有课程实验时间中，检索出当前实验室占用情况提供给教师参考，强制教师无法选择冲突时段，并弹出警告框
+6.课程预约时间不能超过实验课时的检测，否则弹出警告框，阻止预约操作
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## UI框架/插件
+element-plus
+bootstrap
+sass
+timestable
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## 个人服务器部署
+服务器部署：http://120.55.12.249:5173/
+域名解析：http://vue.arduer.site/
